@@ -21,4 +21,9 @@ logging:
       yc:
         ebuy:
           dao: debug
-          web: warn  
+          web: warn 
+pagehelper:
+  helperDialect: mysql
+  reasonable: true 
+  supportMethodsArguments: true 
+  pageSizeZero: false #pageSize=0 

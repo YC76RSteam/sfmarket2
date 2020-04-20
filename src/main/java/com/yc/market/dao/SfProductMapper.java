@@ -18,7 +18,7 @@ public interface SfProductMapper {
 
     List<SfProduct> selectByExample(SfProductExample example);
     
-    List<SfProduct> selectByExampleBLOBs(SfProductExample example);
+    List<SfProduct> selectByExampleWithBLOBs(SfProductExample example);
 
     SfProduct selectByPrimaryKey(Integer pid);
 
