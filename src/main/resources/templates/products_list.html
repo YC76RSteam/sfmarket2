@@ -65,7 +65,43 @@ $(function() {
  <!--产品列表样式-->
  <div  class="scrollsidebar side_green clearfix" id="scrollsidebar"> 
     <div class="show_btn" id="rightArrow"><span></span></div>
-
+	<div class="page_left_style side_content"  >
+  <div class="side_title"><a title="隐藏" class="close_btn"><span></span></a></div>
+   <div class="side_list">
+    <div class="title_name">菜单列表</div>
+   <div class="demo">
+      <ul class="nav">
+         <li class="Menu_Bar"><a href="#" target="_blank">首页</a></li>
+         <li class="Menu_Bar"><a href="#">服务</a>
+              <ul>
+                  <li><a href="#">JAVASCRIPT</a></li>
+                  <li><a href="#">PHP</a></li>
+                  <li><a href="#">MYSQL</a></li>
+                  <li><a href="#">LINUX</a></li>
+              </ul>
+         </li>
+         <li class="Menu_Bar"><a href="#">案例</a></li>
+         <li class="Menu_Bar"><a href="#">文章</a></a>
+              <ul>
+                   <li class="active"><a href="#">XHTML/CSS</a></li>
+                   <li><a href="#">Javascript/Ajax/jQuery</a>
+                        <ul>
+                            <li><a href="#">Cookies</a></li>
+                            <li><a href="#">Event</a></li>
+                            <li><a href="#">Games</a></li>
+                            <li><a href="#">Images</a></li>
+                        </ul>
+                   </li>
+                   <li><a href="#" target="_blank">PHP/MYSQL</a></li>
+                   <li><a href="#" target="_blank">前端观察</a></li>
+                   <li><a href="#" target="_blank">HTML5/移动WEB应用</a></li>
+              </ul>
+         </li>
+         <li class="Menu_Bar"><a href="#" target="_blank">关于</a></li>
+      </ul>
+   </div> 
+  </div>
+ </div>
  <div class="page_right_style">
  <div class="Sorted">
   <div class="Sorted_style">
@@ -80,9 +116,7 @@ $(function() {
    </div>
    <!--页数-->
    <div class="s_Paging">
-   <span> 1/12</span>
-   <a href="#" class="on">&lt;</a>
-   <a href="#">&gt;</a>
+   <span th:text="${pageinfo.pageNum}+'/'+${pageinfo.pages}" style="text-align: center"></span>
    </div>
    </div>
    <div class="p_list  clearfix">
@@ -104,12 +138,12 @@ $(function() {
    <div class="Paging">
     <div class="Pagination">
     <a href="index">首页</a>
-     <a th:href="''" class="pn-prev disabled">&lt;上一页</a>
-	 <a th:href="'products_list?pageNum='+${pageNum}" class="on">
-		<span th:text="${PL.pageNum}">1</span>
+     <a th:href="'products_list?pageNum='+${pageinfo.pageNum-1}" class="pn-prev disabled">&lt;上一页</a>
+	 <a th:href="'products_list?pageNum='+${pageinfo.pageNum}" class="on">
+		<span th:text="${PL.pageNum}"></span>
      </a>
-	 <a href="products_list?pageNum='+${pageNum+1}">下一页&gt;</a>
-	 <a href="#">尾页</a>	
+	 <a th:href="'products_list?pageNum='+${pageinfo.pageNum+1}">下一页&gt;</a>
+	 <a th:href="'products_list?pageNum='+${pageinfo.pages}">尾页</a>	
      </div>
     </div>
    </div>

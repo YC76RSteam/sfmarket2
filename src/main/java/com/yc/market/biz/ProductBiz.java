@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.github.pagehelper.PageHelper;
 import com.yc.market.bean.SfProduct;
 import com.yc.market.bean.SfProductExample;
 import com.yc.market.dao.SfProductMapper;
@@ -31,8 +30,6 @@ public class ProductBiz {
      * @throws Exception
      */
     public List<SfProduct> getList(int pageNum, int pageSize) throws Exception {
-        //使用分页插件,核心代码就这一行
-        PageHelper.startPage(pageNum, pageSize);
         List<SfProduct> productList = sfpm.selectByExample(se);
         return productList;
     }
